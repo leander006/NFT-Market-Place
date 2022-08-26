@@ -1,6 +1,5 @@
 const {useState,useEffect} = require("react");
 const {ethers} = require('ethers')
-import { useRouter } from "next/router";
 import Web3modal from "web3modal";
 import { contractAddress} from "../config";
 import NFTMARKETPLACE from "../abi/NFTMARKETPLACE.json"
@@ -12,8 +11,6 @@ export default function myNFT(){
 
       const [nft, setNft] = useState([])
       const [loading, setLoading] = useState('not-loading')
-      const router = useRouter();
-
       useEffect(() => {
         loadNFTs();
       },[]);
