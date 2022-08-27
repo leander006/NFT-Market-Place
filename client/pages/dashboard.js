@@ -51,7 +51,26 @@ export default function createrDashBoard(){
           setLoading('loading')
       }
 
-      
+      async function cancelListing(tokenId){
+            setLoading('not-loading')
+            const web3Modal = new Web3modal();
+            const connection = await web3Modal.connect();
+            const provider = new ethers.providers.Web3Provider(connection);
+            const getNetwork = await provider.getNetwork();
+            const goerliChainId =5;
+            if(getNetwork.chainId!= goerliChainId){
+              alert("Should be connected to goerli network ")
+              return;
+            }
+            // Sign the transacrion
+            const getSigner = provider.getSigner();
+            const marketContract  = new ethers.Contract(contractAddress,NFTMARKETPLACE.abi,getSigner);
+            const transaction = await marketContract.cancelNFTsell();
+            await transaction.wait();
+            loadNFTs();
+
+      }
+
       if(loading == 'not-loading')
       return(
         <h1 className="px-20 py-10 text-3xl">Wait loading...</h1>
@@ -76,7 +95,7 @@ export default function createrDashBoard(){
                 
                         <div className="p-4 bg-black">
                           <p className="text-2xl mb-4 font-bold text-white">{n.price} ETH</p>
-                          <button className="w-full bg-red500 text-white font-bold py-2 px-12 rounded" onClick={()=>null}>Cancel listing</button>
+                          <button className="w-full bg-red500 text-white font-bold py-2 px-12 rounded" onClick={()=>cancelListing(n.tokenId)}>Cancel listing</button>
                         </div>
                       </div>
                     ))}

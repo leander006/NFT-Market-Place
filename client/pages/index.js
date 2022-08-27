@@ -77,7 +77,7 @@ export default function Home(){
       <div className="px-4" style={{maxWith:'1600px'}}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pt-4">
           {nft.map((n,i) =>(
-            <div key={i} className="border shadow rounded-xl overflow-hidden">
+            <div key={i} className="border shadow rounded-xl overflow-hidden mx-5 my-5">
               <Image src={n.image} alt={n.name} width={300} height={200} placeholder="blur" blurDataURL="/placeholder.png" layout="responsive"/>
               <div className="p-4">
                 <p style={{height:'64px'}} className="text-2xl font-semibold">{n.name}</p>

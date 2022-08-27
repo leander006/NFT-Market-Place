@@ -51,6 +51,28 @@ export default function myNFT(){
           setLoading('loading')
       }
 
+      async function resellNFT(tokenId,tokenPrice){
+            setLoading('not-loading');
+            const web3Modal = new Web3modal();
+            const connection = await web3Modal.connect();
+            const provider = new ethers.providers.Web3Provider(connection);
+            const getNetwork = await provider.getNetwork();
+            const goerliChainId =5;
+            if(getNetwork.chainId!= goerliChainId){
+              alert("Should be connected to goerli network ")
+              return;
+            }
+            // Sign the transacrion
+            const getSigner = provider.getSigner();
+            const marketContract  = new ethers.Contract(contractAddress,NFTMARKETPLACE.abi,getSigner);
+            const price = ethers.utils.parseUnits(tokenPrice ,"ether");
+            let listingPrice = await marketContract.getListingPrice();
+            listingPrice = listingPrice.toString();
+            let transaction = await marketContract.resellToken(tokenId,price,{value:listingPrice});
+            await transaction.wait();
+            loadNFTs();
+
+      }
       if(loading == 'not-loading')
       return(
         <h1 className="px-20 py-10 text-3xl">Wait loading...</h1>
@@ -75,7 +97,7 @@ export default function myNFT(){
                 
                         <div className="p-4 bg-black">
                           <p className="text-2xl mb-4 font-bold text-white">{n.price} ETH</p>
-                          <button className="w-full bg-red500 text-white font-bold py-2 px-12 rounded" onClick={()    =>null}>Resell</button>
+                          <button className="w-full bg-red500 text-white font-bold py-2 px-12 rounded" onClick={()    =>resellNFT(n.tokenId,n.price)}>Resell</button>
                         </div>
                       </div>
                     ))}
