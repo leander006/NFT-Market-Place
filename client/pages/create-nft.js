@@ -26,7 +26,7 @@ export default function create(){
                         headers:{
                               "pinata_api_key":PINATA_KEY,
                               "pinata_secret_api_key":PINATA_SECRET,
-                              "Content-Type": 'multipart/form-data',
+                              "content-type": 'multipart/form-data',
                         }
                   })
                   const imageUrl = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
@@ -57,14 +57,14 @@ export default function create(){
                         headers:{
                               "pinata_api_key":PINATA_KEY,
                               "pinata_secret_api_key":PINATA_SECRET,
-                              "Content-Type": 'application.json',
+                              "Content-type": 'application/json',
                         }
                   })
                   const tokenUrl = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
                   return tokenUrl;
 
             } catch (error) {
-                  console.log(error);
+                  console.log("error in uploading json ", error);
             }
       }
 
@@ -75,7 +75,7 @@ export default function create(){
             const provider = new ethers.providers.Web3Provider(connection);
             const getNetwork = await provider.getNetwork();
             const goerliChainId =5;
-            if(getNetwork != goerliChainId){
+            if(getNetwork.chainId != goerliChainId){
               alert("Should be connected to goerli network ")
               return;
             }
@@ -83,7 +83,8 @@ export default function create(){
             // Sign the transacrion
             const getSigner = provider.getSigner();
             const contract = new ethers.Contract(contractAddress,NFTMARKETPLACE.abi,getSigner);
-            const price = ethers.utils.parseUnits(formInput.price ,"ether");
+            console.log("formInput.price ",formInput.price);
+            const price = ethers.utils.parseUnits(formInput.price,"ether")
             let listingPrice = await contract.getListingPrice();
             listingPrice = listingPrice.toString();
             let transaction = await contract.createToken(url,price,{value:listingPrice});
@@ -99,9 +100,9 @@ return(
                   {fileUrl && <Image className="rounded mt-4" alt="Image uploaded successfully" height={200} width={300} src={fileUrl} placeholder="blur" blurDataURL="/placeholder.png"/>}
             </div>
             <div className="w-1/2 flex flex-col">
-                  <input placeholder="Assest name" type="text" className="mt-8 border p-4" onChange={e=>setFormInput({...formInput,name:e.target.name})}/>
-                  <textarea placeholder="Assest Description" className="mt-2 border p-4" onChange={e=>setFormInput({...formInput,description:e.target.description})}/>
-                  <input placeholder="Assest price in ETH" type="number" className="mt-8 border p-4" onChange={e=>setFormInput({...formInput,price:e.target.price})}/>
+                  <input placeholder="Assest name" type="text" className="mt-8 border p-4" onChange={e=>setFormInput({...formInput,name:e.target.value})}/>
+                  <textarea placeholder="Assest Description" className="mt-2 border p-4" onChange={e=>setFormInput({...formInput,description:e.target.value})}/>
+                  <input placeholder="Assest price in ETH" type="number" className="mt-8 border p-4" onChange={e=>setFormInput({...formInput,price:e.target.value})}/>
                   <input type="file" accept="image/*" name="Assest" className="my-4" onChange={imageUpload}/>
                   {
                         fileUrl && (

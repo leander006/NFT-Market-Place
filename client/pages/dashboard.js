@@ -65,7 +65,7 @@ export default function createrDashBoard(){
             // Sign the transacrion
             const getSigner = provider.getSigner();
             const marketContract  = new ethers.Contract(contractAddress,NFTMARKETPLACE.abi,getSigner);
-            const transaction = await marketContract.cancelNFTsell();
+            const transaction = await marketContract.cancelNFTsell(tokenId);
             await transaction.wait();
             loadNFTs();
 
