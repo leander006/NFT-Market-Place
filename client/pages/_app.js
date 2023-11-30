@@ -9,6 +9,9 @@ function MyApp({ Component, pageProps }) {
           <a className="text-4xl m-2 font-bold">Metaverse</a>
         </Link>
         <div className="flex items-center">
+          <Link href="/">
+            <a className="text-xl m-2 font-bold">Buy</a>
+          </Link>
           <Link href="/create">
             <a className="text-xl m-2 font-bold">Create</a>
           </Link>

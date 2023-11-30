@@ -13,6 +13,7 @@ export default function create() {
     price: "",
     name: "",
     description: "",
+    amount: "",
   });
   const router = useRouter();
   const [loading, setLoading] = useState("not-loading");
@@ -55,6 +56,7 @@ export default function create() {
           name,
           description,
           image: fileUrl,
+          amount: amount,
         },
       });
       const resFile = await axios({
@@ -154,7 +156,7 @@ export default function create() {
           type="number"
           className="mt-8 border p-4"
           onChange={(e) =>
-            setFormInput({ ...formInput, price: e.target.value })
+            setFormInput({ ...formInput, amount: e.target.value })
           }
         />
         <input
