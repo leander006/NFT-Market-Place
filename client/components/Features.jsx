@@ -4,7 +4,7 @@ import Image from "next/image";
 
 // import FeaturesBg from "../../public/assets/images/features-bg.png";
 // import FeaturesElement from "../../public/assets/images/features-element.png";
-import Supply from "../public/assets/images/ill.png";
+import Supply from "../public/assets/images/Supply.gif";
 
 function Features() {
   const [tab, setTab] = useState(1);
@@ -37,7 +37,7 @@ function Features() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4 text-primary">
-              Explore the solutions
+              Key Features
             </h1>
             {/* <p className="text-xl text-gray-600">
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
@@ -54,12 +54,12 @@ function Features() {
             >
               <div className=" text-3xl md:pr-4 lg:pr-12 xl:pr-16 mb-8">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r font-bold from-blue-500 to-teal-400">
-                  Powerful Suite Of Tools
+                  Monetization Made Easy
                 </span>
                 <p className="text-xl text-gray-600">
-                  Maximize the efficiency, transparency, and collaboration of
-                  your supply chain network, while reducing costs and enhancing
-                  customer satisfaction, with our advanced platform.
+                  Turn your passion into profit with our user-friendly
+                  monetization tools. Earn directly from your audience and gain
+                  financial independence.
                 </p>
               </div>
               {/* Tabs buttons */}
@@ -78,11 +78,12 @@ function Features() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1 text-primary">
-                      Building the Simple ecosystem
+                      Global Exposure
                     </div>
                     <div className="text-gray-600">
-                      Take collaboration to the next level with security and
-                      administrative features built for teams.
+                      Reach a global audience eager to support and engage with
+                      unique and compelling content. Connect with fans from
+                      around the world.
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
@@ -109,11 +110,11 @@ function Features() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1 text-primary">
-                      Building the Simple ecosystem
+                      Creator-Focused Community
                     </div>
                     <div className="text-gray-600">
-                      Take collaboration to the next level with security and
-                      administrative features built for teams.
+                      Join a vibrant community of fellow creators. Share
+                      insights, collaborate, and grow together on PassionPulse
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
@@ -191,17 +192,17 @@ function Features() {
                       className="md:max-w-none mx-auto rounded"
                       src={Supply}
                       width="500"
-                      height="462"
+                      height="480"
                       alt="Features bg"
                     />
-                    <Image
+                    {/* <Image
                       className="md:max-w-none absolute w-full left-0 transform animate-float"
                       src={Supply}
                       width="500"
                       height="44"
                       alt="Element"
                       style={{ top: "30%" }}
-                    />
+                    /> */}
                   </div>
                 </Transition>
                 {/* Item 2 */}

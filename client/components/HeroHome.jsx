@@ -9,7 +9,7 @@ function HeroHome() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const toRotate = ["Supply Chain"];
+  const toRotate = ["Monetize Passion"];
   const period = 2000;
 
   useEffect(() => {
@@ -88,7 +88,7 @@ function HeroHome() {
               className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
               data-aos="zoom-y-out"
             >
-              Streamline Your{" "}
+              Empower Creativity,{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
                 {text}
               </span>
@@ -99,9 +99,7 @@ function HeroHome() {
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
               >
-                Connect, Collaborate, and Control Your Entire Supply Chain with
-                Our Dynamic Platform - Unlocking Efficiency and Boosting Your
-                Business Growth!
+                Join PassionPulse , the Ultimate Hub for Content Creators.
               </p>
               <div
                 className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
@@ -138,8 +136,8 @@ function HeroHome() {
               <div className="flex flex-col justify-center">
                 {/* <img className="mx-auto" src={HeroImage} width="768" height="432" alt="Hero" /> */}
                 <iframe
-                  src="https://giphy.com/embed/l0Iy7z476CjEV3G0w"
-                  width="480"
+                  src="https://cdn.dribbble.com/users/1959912/screenshots/6464044/content_creator_dribbble.gif"
+                  width="780"
                   height="360"
                   frameBorder="0"
                   class="giphy-embed"

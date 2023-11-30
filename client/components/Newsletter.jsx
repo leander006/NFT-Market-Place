@@ -101,8 +101,8 @@ function Newsletter() {
                   Powering your business
                 </h3>
                 <p className="text-gray-300 text-lg mb-6">
-                  Revolutionize your supply chain management with our
-                  cutting-edge platform and stay ahead of the competition.
+                  Revolutionize fan interactions with our cutting-edge platform
+                  and stay ahead of the competition.
                 </p>
 
                 {/* CTA form */}

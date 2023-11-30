@@ -22,8 +22,9 @@ function FeaturesBlocks() {
               How it works{" "}
             </h1>
             <p className="text-xl text-primary-content">
-              Connects stakeholders, shares info, manages flow of goods and
-              services to meet customer demands.
+              Empower collaboration seamlessly with PassionPulse. Connect
+              stakeholders, streamline workflows, and meet customer demands
+              effortlessly.
             </p>
           </div>
 
@@ -66,11 +67,11 @@ function FeaturesBlocks() {
                 </g>
               </svg>
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1 text-primary">
-                Resilience
+                Create Your Profile
               </h4>
               <p className="text-gray-600 text-center">
-                Connects stakeholders, streamlines flow of goods and information
-                efficiently.
+                Set up your creator profile in minutes. Showcase your talents,
+                bio, and content to attract your audience.
               </p>
             </div>
 
@@ -108,11 +109,11 @@ function FeaturesBlocks() {
                 </g>
               </svg>
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1 text-primary">
-                Transparency
+                Post and Engage
               </h4>
               <p className="text-gray-600 text-center">
-                Connects stakeholders, streamlines flow of goods and information
-                efficiently.
+                Share your exclusive content, connect with your fans through
+                comments, and build a loyal following.
               </p>
             </div>
 
@@ -143,11 +144,11 @@ function FeaturesBlocks() {
                 </g>
               </svg>
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1 text-primary">
-                Accountability
+                Monetize Your Content
               </h4>
               <p className="text-gray-600 text-center">
-                Connects stakeholders, streamlines flow of goods and information
-                efficiently.
+                Unlock multiple revenue streams. From subscriptions to tips, we
+                provide the tools to maximize your earnings
               </p>
             </div>
 
@@ -194,8 +195,7 @@ function FeaturesBlocks() {
                 Efficiency
               </h4>
               <p className="text-gray-600 text-center">
-                Connects stakeholders, streamlines flow of goods and information
-                efficiently.
+                Connects stakeholders, streamlines flow of Content efficiently.
               </p>
             </div>
 
@@ -229,8 +229,7 @@ function FeaturesBlocks() {
                 Traceability
               </h4>
               <p className="text-gray-600 text-center">
-                Connects stakeholders, streamlines flow of goods and information
-                efficiently.
+                Connects stakeholders, streamlines flow of Content efficiently.
               </p>
             </div>
 
@@ -273,8 +272,7 @@ function FeaturesBlocks() {
                 Visibility
               </h4>
               <p className="text-gray-600 text-center">
-                Connects stakeholders, streamlines flow of goods and information
-                efficiently.
+                Connects stakeholders, streamlines flow of Content efficiently.
               </p>
             </div>
           </div>

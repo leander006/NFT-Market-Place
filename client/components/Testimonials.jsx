@@ -50,11 +50,11 @@ function Testimonials() {
               data-aos="zoom-y-out"
             >
               {" "}
-              Trusted by over 20,000 companies all over the world{" "}
+              Trusted by over 20,000 Creators all over the world{" "}
             </h3>
             <p className="text-xl text-primary-content" data-aos="zoom-y-out">
-              Revolutionize your supply chain management with our cutting-edge
-              platform and stay ahead of the competition.
+              Revolutionize fan interactions with our cutting-edge platform and
+              stay ahead of the competition.
             </p>
           </div>
 
@@ -149,17 +149,16 @@ function Testimonials() {
                   />
                 </div>
                 <blockquote className="text-xl font-medium mb-4 text-primary">
-                  “ The decentralized supply chain platform improved our
-                  efficiency, transparency and trust between partners, resulting
-                  in increased profits. “
+                  “ The platform improved our efficiency, transparency and trust
+                  between partners, resulting in increased fan interactions. “
                 </blockquote>
                 <cite className="block font-bold text-lg not-italic mb-1">
                   Angela Yu
                 </cite>
                 <div className="text-gray-600">
-                  <span>CEO & Co-Founder</span>{" "}
+                  <span>Creator</span>{" "}
                   <a className="text-blue-600 hover:underline" href="#0">
-                    @Clement
+                    @Instagram
                   </a>
                 </div>
               </div>
