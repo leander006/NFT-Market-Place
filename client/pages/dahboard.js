@@ -6,7 +6,7 @@ import NFTMARKETPLACE from "../abi/NFTMARKETPLACE.json";
 import axios from "axios";
 import Image from "next/image";
 
-export default function DashBoard() {
+export default function dahboard() {
   const [nft, setNft] = useState([]);
   const [loading, setLoading] = useState("not-loading");
   useEffect(() => {
@@ -85,44 +85,25 @@ export default function DashBoard() {
 
   return (
     <div className="flex justify-center">
-      <div className="px-4" style={{ maxWith: "1600px" }}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pt-4">
-          {nft.map((n, i) => (
-            <div
-              key={i}
-              className="border shadow rounded-xl overflow-hidden mx-5 my-5"
-            >
-              <Image
-                src={n.image}
-                alt={n.name}
-                width={400}
-                height={300}
-                placeholder="blur"
-                blurDataURL="    placeholder.png"
-                layout="responsive"
-              />
-              <div className="p-4">
-                <p
-                  style={{ height: "64px" }}
-                  className="text-2xl font-semibold"
-                >
-                  {n.name}
-                </p>
-              </div>
-
-              <div className="p-4 bg-black">
-                <p className="text-2xl mb-4 font-bold text-white">
-                  {n.price} ETH
-                </p>
-                <button
-                  className="w-full bg-red500 text-white font-bold py-2 px-12 rounded"
-                  onClick={() => cancelListing(n.tokenId)}
-                >
-                  Cancel listing
-                </button>
-              </div>
-            </div>
-          ))}
+      <div className="flex justify-center">
+        <h1>Dashboard</h1>
+        <div className="w-1/8 flex flex-col mr-10 mt-10">
+          <Image
+            className="rounded mt-4"
+            height={200}
+            width={300}
+            src="/placeholder.png"
+          />
+          <Image
+            className="rounded mt-4"
+            alt="Image uploaded successfully"
+            height={200}
+            width={300}
+            // src={fileUrl}
+            placeholder="blur"
+            blurDataURL="/placeholder.png"
+          />
+          <h1 className="text-blue-400">hello</h1>
         </div>
       </div>
     </div>

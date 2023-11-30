@@ -10,9 +10,9 @@ export default function Home() {
   const [nft, setNft] = useState([]);
   const [loading, setLoading] = useState("not-loading");
 
-  // useEffect(() => {
-  //   loadNFTs();
-  // }, []);
+  useEffect(() => {
+    loadNFTs();
+  }, []);
 
   async function loadNFTs() {
     const provider = new ethers.providers.JsonRpcProvider(Infura_URL);
