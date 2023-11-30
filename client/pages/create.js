@@ -7,7 +7,7 @@ import NFTMARKETPLACE from "../abi/NFTMARKETPLACE.json";
 import axios from "axios";
 import Image from "next/image";
 
-export default function Create_nft() {
+export default function create() {
   const [fileUrl, setFileUrl] = useState(null);
   const [formInput, setFormInput] = useState({
     price: "",
@@ -143,6 +143,14 @@ export default function Create_nft() {
         />
         <input
           placeholder="Assest price in ETH"
+          type="number"
+          className="mt-8 border p-4"
+          onChange={(e) =>
+            setFormInput({ ...formInput, price: e.target.value })
+          }
+        />
+        <input
+          placeholder="Amount of token"
           type="number"
           className="mt-8 border p-4"
           onChange={(e) =>
