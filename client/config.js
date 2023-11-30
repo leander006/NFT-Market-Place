@@ -1,4 +1,6 @@
-export const contractAddress = "0x90AdD6479A53076Cddd5614D67C94c4ead8111F1";
-export const Infura_URL = "https://goerli.infura.io/v3/f3e69f5f04514d89b191de5dfcaaaeb9";
-export const PINATA_KEY = "b138873d99722f4101f5";
-export const PINATA_SECRET ="91e861f3a6acaa957498c70b6ecdba119ed1e7be2e8b108413d7a2ebec084d33";
+export const contractAddress = "0xCf86754F0efD428EB0E1C6A08c81a8cEA64e01Ad";
+export const Infura_URL =
+  "https://goerli.infura.io/v3/f5a4e87fb24a47a18fe6cfd9737c5b6c";
+export const PINATA_KEY = "a51d3179a24680fc9876";
+export const PINATA_SECRET =
+  "8a41bb289382b2d3f8f8285be92053833ef3a5635f4cd26215b022d0f2375e86";
