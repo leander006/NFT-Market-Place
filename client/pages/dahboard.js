@@ -93,7 +93,7 @@ export default function dahboard() {
           {nft.map((n, i) => (
             <div
               key={i}
-              className="border text-blue-600 shadow rounded-xl mx-2 "
+              className="border text-blue-600 shadow w-64 h-60 rounded-xl mx-2 "
             >
               <Image
                 src={n.image}
@@ -103,10 +103,11 @@ export default function dahboard() {
                 placeholder="blur"
                 blurDataURL="/placeholder.png"
                 layout="responsive"
+                className="rounded-xl"
               />
               <div className="p-4">
                 <p
-                  style={{ height: "64px" }}
+                  style={{ height: "42px" }}
                   className="text-2xl font-semibold"
                 >
                   {n.name}
