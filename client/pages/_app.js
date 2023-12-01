@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
     <div className="bg-blue-600 h-14 px-2 pb-4">
       <nav className="flex justify-between text-white ">
         <Link href="/">
-          <a className="text-4xl m-2 font-bold">Metaverse</a>
+          <a className="text-4xl m-2 font-bold">PassionPulse</a>
         </Link>
         <div className="flex items-center">
           <Link href="/buy">
