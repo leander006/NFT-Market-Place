@@ -56,7 +56,7 @@ export default function create() {
           name,
           description,
           image: fileUrl,
-          amount: amount,
+          // amount: amount,
         },
       });
       const resFile = await axios({

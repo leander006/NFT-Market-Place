@@ -1,14 +1,15 @@
-const { useState, useEffect } = require("react");
-const { ethers } = require("ethers");
-import Web3modal from "web3modal";
+import { ethers, logger } from "ethers";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import web3modal from "web3modal";
 import { contractAddress, Infura_URL } from "../config";
 import NFTMARKETPLACE from "../abi/NFTMARKETPLACE.json";
-import axios from "axios";
 import Image from "next/image";
 
-export default function dahboard() {
+export default function buy() {
   const [nft, setNft] = useState([]);
   const [loading, setLoading] = useState("not-loading");
+
   useEffect(() => {
     loadNFTs();
   }, []);
@@ -20,8 +21,7 @@ export default function dahboard() {
       NFTMARKETPLACE.abi,
       provider
     );
-
-    const data = await marketContract.fetchItemListed();
+    const data = await marketContract.fetchMarketItem();
 
     const items = await Promise.all(
       data.map(async (i) => {
@@ -45,9 +45,8 @@ export default function dahboard() {
     setLoading("loading");
   }
 
-  async function resellNFT(tokenId, tokenPrice) {
-    setLoading("not-loading");
-    const web3Modal = new Web3modal();
+  async function buyNft(nft) {
+    const web3Modal = new web3modal();
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
     const getNetwork = await provider.getNetwork();
@@ -56,19 +55,17 @@ export default function dahboard() {
       alert("Should be connected to goerli network ");
       return;
     }
+
     // Sign the transacrion
     const getSigner = provider.getSigner();
-    console.log("getSigner ", getSigner);
-    const marketContract = new ethers.Contract(
+    const contract = new ethers.Contract(
       contractAddress,
       NFTMARKETPLACE.abi,
       getSigner
     );
-    const price = ethers.utils.parseUnits(tokenPrice, "ether");
-    let listingPrice = await marketContract.getListingPrice();
-    listingPrice = listingPrice.toString();
-    let transaction = await marketContract.resellToken(tokenId, price, {
-      value: listingPrice,
+    const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
+    const transaction = await contract.createMarketSale(nft.tokenId, {
+      value: price,
     });
     await transaction.wait();
     loadNFTs();
@@ -76,30 +73,25 @@ export default function dahboard() {
 
   if (loading == "not-loading")
     return <h1 className="px-20 py-10 text-3xl">Wait loading...</h1>;
+  console.log("nft ", nft);
 
   if (loading == "loading" && !nft.length)
-    return <h1 className="px-20 py-10 text-3xl">No NFT own by you</h1>;
-
-  if (loading == "not-loading")
-    return <h1 className="px-20 py-10 text-3xl">Wait loading...</h1>;
-
-  if (loading == "loading" && !nft.length)
-    return <h1 className="px-20 py-10 text-3xl">No NFT is listed by you</h1>;
+    return <h1 className="px-20 py-10 text-3xl">No Items in MarketPlace</h1>;
 
   return (
     <div className="flex justify-center">
-      <div className="flex justify-center">
-        <div className="flex flex-row mr-10 mt-10">
+      <div className="px-4" style={{ maxWith: "1600px" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pt-4">
           {nft.map((n, i) => (
             <div
               key={i}
-              className="border text-blue-600 shadow rounded-xl mx-2 "
+              className="border text-blue-600 shadow rounded-xl overflow-hidden mx-5 my-5"
             >
               <Image
                 src={n.image}
                 alt={n.name}
-                width={600}
-                height={600}
+                width={1500}
+                height={1500}
                 placeholder="blur"
                 blurDataURL="/placeholder.png"
                 layout="responsive"
@@ -122,9 +114,9 @@ export default function dahboard() {
                 </p>
                 <button
                   className="w-full bg-white text-black font-bold py-2 px-12 rounded"
-                  onClick={() => resellNFT(n.tokenId, n.price)}
+                  onClick={() => buyNft(n)}
                 >
-                  Resell
+                  Buy now
                 </button>
               </div>
             </div>
